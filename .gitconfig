@@ -1,10 +1,9 @@
 # vim: noexpandtab sw=8
 [user]
-	name = Hyeon Kim
-	email = simnalamburt@gmail.com
-	signingkey = 13E12F01AD9C017AA999A7FE0F85F46EE242057F
+	name = JH Bang
+	email = apooapooar@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 	pager = less -+XF -SQc
 	excludesfile = ~/.gitexclude
 	fscache = yes
@@ -37,8 +36,6 @@
 	autoStash = true
 [merge]
 	conflictstyle = diff3
-[commit]
-	gpgsign = yes
 [rerere]
 	enabled = yes
 [stash]
@@ -48,56 +45,7 @@
 [submodule]
 	fetchJobs = 0
 [credential "https://github.com"]
-	username = simnalamburt
-[credential "https://git.upnl.org"]
-	username = simnalamburt
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-[alias]
-	# Complex and long git aliases.
-	# Check out https://github.com/simnalamburt/cgitc for short aliases!
-
-	# git pr [<remote>]
-	#
-	# Fetch pull requests from GitHub. Fetch "origin" if remote is not
-	# specified.
-	#
-	# Usage:
-	#   git pr
-	#   git pr other
-	pr = "!_() { git config fetch.prune no && git fetch ${1:-origin} +refs/pull/*/head:refs/remotes/${1:-origin}/pr/*; }; _"
-
-	# git g
-	#
-	# Git graph with signature info
-	g = "log --graph --pretty='format:%C(auto)%h%d %s%x1b[38;5;022m% GS %x1b[38;5;239m%cr%x1b[0m'"
-
-	# git h <filename>
-	#
-	# Show history of a file
-	#
-	# Usage:
-	#   git h README.md
-	h = "log -p -M --follow"
-
-	# git sed <regex>
-	#
-	# Find and replace patterns with given regex.
-	#
-	# Usage:
-	#   git sed 's/yolo/swag/g'
-	sed = "!_() { git ls-files -z | xargs -0 perl -i -pe ${1}; }; _"
-
-	# git chdate
-	#
-	# Change git commit date and author date
-	#
-	# Usage:
-	#   git chdate 2013-05-05T12:34:56+0800
-	chdate = "!_() { GIT_COMMITTER_DATE=${1} git commit --amend --no-edit --date ${1}; }; _"
+	username = jhbaang
 
 [include]
 	path = ~/.gitconfig.local
