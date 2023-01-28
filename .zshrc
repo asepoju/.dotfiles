@@ -8,8 +8,8 @@ export GPG_TTY=$(tty)
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 
@@ -18,8 +18,8 @@ fi
 # zinit
 #
 autoload -U is-at-least
-if is-at-least 5.1 && [[ -d ~/.zinit ]]; then
-  source ~/.zinit/bin/zinit.zsh
+if is-at-least 5.1 && [[ -d ~/.local/share/zinit/zinit.git ]]; then
+  source ~/.local/share/zinit/zinit.git/zinit.zsh
 
   zplugin ice depth=1
   zplugin light romkatv/powerlevel10k
@@ -31,22 +31,12 @@ if is-at-least 5.1 && [[ -d ~/.zinit ]]; then
   fi
   zinit light zsh-users/zsh-autosuggestions
 
-  # Easily access the directories you visit most often.
-  #
-  # Usage:
-  #   $ z work
-  #   $ <CTRL-G>work
-  zinit light agkozak/zsh-z
-  zinit light andrewferrier/fzf-z
-  export FZFZ_SUBDIR_LIMIT=0
-
   # Automatically expand all aliases
   ZSH_EXPAND_ALL_DISABLE=word
   zinit light simnalamburt/zsh-expand-all
 
   # Others
   zinit light simnalamburt/cgitc
-  zinit light simnalamburt/ctrlf
   zinit light zdharma/fast-syntax-highlighting
   zinit light zsh-users/zsh-history-substring-search
   zinit light zsh-users/zsh-completions
@@ -157,31 +147,3 @@ setopt complete_in_word
 setopt always_to_end
 WORDCHARS=''
 zmodload -i zsh/complist
-
-
-#
-# WSL support
-#
-if [[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]]; then
-  umask 022
-  alias open=explorer.exe
-  alias pbcopy=clip.exe
-  alias pbpaste='powershell.exe Get-Clipboard | sed "s/\r$//" | head -c -1'
-fi
-
-
-#
-# zshrc
-#
-export DOCKER_BUILDKIT=1
-
-# Terraform
-if (( $+commands[terraform] )); then
-  alias tf='terraform'
-  export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
-fi
-
-# Golang
-if (( $+commands[go] )); then
-  export GOPATH="${HOME}/.go"
-fi
