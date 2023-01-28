@@ -211,13 +211,11 @@ try
     if executable('go')
       Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
     endif
-    Plug 'fannheyward/coc-rust-analyzer', {'do': 'yarn install --frozen-lockfile'}
     Plug 'weirongxu/coc-kotlin', {'do': 'yarn install --frozen-lockfile'}
     Plug 'ervandew/supertab'
     Plug 'junegunn/fzf'
   endif
   Plug 'ryanoasis/vim-devicons'
-  Plug 'preservim/nerdtree'
   Plug 'tpope/vim-fugitive'
   if has('nvim-0.6')
     Plug 'github/copilot.vim'
@@ -231,9 +229,6 @@ try
 
   " Syntax
   let g:polyglot_disabled = ['sensible', 'v'] | Plug 'sheerun/vim-polyglot'
-  Plug 'hashivim/vim-terraform'
-  Plug 'qnighy/lalrpop.vim'
-  Plug 'wuelnerdotexe/vim-astro'
 
   " Format
   Plug 'sgur/vim-editorconfig'
