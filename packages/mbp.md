@@ -1,4 +1,4 @@
 ### `brew`
 - neovim openssh
-- tmux bat delta
-- python@3.10
+- tmux bat delta lsd fzf
+- python@3.10 node
