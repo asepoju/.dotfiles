@@ -1,3 +1,21 @@
+```
+git clone git@github.com:jhbaang/.dotfiles --depth=1 ~/.dotfiles
+
+ln -s ~/.dotfiles/.vimrc ~/.vimrc
+
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+ln -sf ~/.dotfiles/.zshrc ~
+exec zsh
+p10k configure
+
+ln -sf ~/.dotfiles/.gitconfig ~
+ln -sf ~/.dotfiles/.gitexclude ~
+cp ~/.dotfiles/.gitconfig.local ~
+```
+
+
+
+
 terminal
 - Ctrl-R : turn on fzf
 - Ctrl-T : fzf file find
